@@ -101,6 +101,11 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<!-- Migrations -->
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
 
 		<!-- API and Documentation Tools: Libraries for API documentation and exploration -->
 		<dependency>
@@ -127,6 +132,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>com.assignment5d.restapiserver.RestApiServerApplication</mainClass>
 					<excludes>
 						<!-- Exclude Lombok from the final artifact to avoid runtime dependency -->
 						<exclude>
@@ -150,16 +156,15 @@
 							<inputSpec>${project.basedir}/src/main/resources/openapi.yaml</inputSpec>
 							<generatorName>spring</generatorName>
 							<apiPackage>com.assignment5d.restapiserver.api</apiPackage>
-							<modelPackage>com.assignment5d.restapiserver.model</modelPackage>
+							<modelPackage>com.assignment5d.restapiserver.entity</modelPackage>
 							<configOptions>
-								<interfaceOnly>true</interfaceOnly>
-								<useTags>true</useTags>
-								<useBeanValidation>true</useBeanValidation>
-								<performBeanValidation>true</performBeanValidation>
+								<delegatePattern>true</delegatePattern>
 								<dateLibrary>java8</dateLibrary>
-								<useUUIDsAsIds>true</useUUIDsAsIds>
 								<library>spring-boot</library>
+								<performBeanValidation>true</performBeanValidation>
+								<useBeanValidation>true</useBeanValidation>
 								<useSpringBoot3>true</useSpringBoot3>
+								<useTags>true</useTags>
 							</configOptions>
 						</configuration>
 					</execution>
