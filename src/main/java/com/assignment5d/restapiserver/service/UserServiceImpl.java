@@ -50,15 +50,15 @@ public class UserServiceImpl implements UserService {
     public UserEntity saveById(UUID id, UserDto userDto) {
         UserEntity user = findById(id);
 
-        if (userDto.getUsername() != null && !userDto.getUsername().isEmpty())
+        if (StringUtil.isValid(userDto.getUsername()))
             user.setUsername(userDto.getUsername());
-        if (userDto.getPassword() != null && !userDto.getPassword().isEmpty())
+        if (StringUtil.isValid(userDto.getPassword()))
             user.setEncryptedPassword(passwordEncoder.encode(userDto.getPassword()));
-        if (userDto.getGivenName() != null && !userDto.getGivenName().isEmpty())
+        if (StringUtil.isValid(userDto.getGivenName()))
             user.setGivenName(userDto.getGivenName());
-        if (userDto.getFamilyName() != null && !userDto.getFamilyName().isEmpty())
+        if (StringUtil.isValid(userDto.getFamilyName()))
             user.setFamilyName(userDto.getFamilyName());
-        if (userDto.getAddress() != null && !userDto.getAddress().isEmpty())
+        if (StringUtil.isValid(userDto.getAddress()))
             user.setAddress(userDto.getAddress());
 
         return userRepository.save(user);
