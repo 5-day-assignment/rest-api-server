@@ -2,6 +2,7 @@ package com.assignment5d.restapiserver.service;
 
 import com.assignment5d.restapiserver.dto.UserDto;
 import com.assignment5d.restapiserver.entity.UserEntity;
+import com.assignment5d.restapiserver.exception.UserNotFoundException;
 import com.assignment5d.restapiserver.repository.UserRepository;
 import com.assignment5d.restapiserver.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity findById(UUID id) {
-        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
 
     @Override
