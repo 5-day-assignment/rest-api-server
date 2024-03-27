@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .anyRequest().authenticated()*/
                 .anyRequest().permitAll() // TODO: Configure security on an API endpoint basis.
             )
+            .formLogin(AbstractHttpConfigurer::disable)
             .httpBasic(AbstractHttpConfigurer::disable);
 
         return http.build();
