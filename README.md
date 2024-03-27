@@ -2,15 +2,15 @@
 
 ## Assignment
 
-[X] Use Java to write a **User Management** REST API Server. Basic CRUD: `GET/POST "/users"`, `GET/PUT/DELETE "/users/{id}"`. `User` model properties: `username`, `password`, `givenName`, `familyName`, `address`.
-[ ] Use Python to wrote a Web Client, that will consume REST API Server: `findAllUsers`, `createNewUser`, `findUserById`, `updateUserById`, `deleteUserById`.
-[ ] Create a Docker image for the REST API Server.
-[ ] Rethink the best way for sending passwords.
-[ ] Use OpenAPI Specification to create the server and the clients.
-[ ] Link OAS (Swagger) UI on server for quick API testing.
-[ ] Use PostgreSQL for User Management database.
-[ ] Create a Docker image for each remaining project.
-[ ] Create a basic Flutter mobile app with only a `login` and `welcome` views, the latter displaying the user's full name.
+- [X] Use Java to write a **User Management** REST API Server. Basic CRUD: `GET/POST "/users"`, `GET/PUT/DELETE "/users/{id}"`. `User` model properties: `username`, `password`, `givenName`, `familyName`, `address`.
+- [ ] Use Python to wrote a Web Client, that will consume REST API Server: `findAllUsers`, `createNewUser`, `findUserById`, `updateUserById`, `deleteUserById`.
+- [ ] Create a Docker image for the REST API Server.
+- [ ] Rethink the best way for sending passwords.
+- [ ] Use OpenAPI Specification to create the server and the clients.
+- [ ] Link OAS (Swagger) UI on server for quick API testing.
+- [ ] Use PostgreSQL for User Management database.
+- [ ] Create a Docker image for each remaining project.
+- [ ] Create a basic Flutter mobile app with only a `login` and `welcome` views, the latter displaying the user's full name.
 
 ## Projects
 
