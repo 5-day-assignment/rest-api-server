@@ -13,6 +13,6 @@ public class UserNotFoundException extends RuntimeException {
     }
 
     public UserNotFoundException(UUID id) {
-        super(STR."User not found with ID: \{id}");
+        super(String.format("User not found with ID: %s", id));
     }
 }
