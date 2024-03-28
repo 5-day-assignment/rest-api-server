@@ -2,10 +2,10 @@
 
 - [X] Use Java to write a **User Management** REST API Server. Basic CRUD: `GET/POST "/users"`, `GET/PUT/DELETE "/users/{id}"`. `User` model properties: `username`, `password`, `givenName`, `familyName`, `address`.
 - [ ] Use Python to wrote a Web Client, that will consume REST API Server: `findAllUsers`, `createNewUser`, `findUserById`, `updateUserById`, `deleteUserById`.
-- [ ] Create a Docker image for the REST API Server.
+- [X] Create a Docker image for the REST API Server.
 - [ ] Rethink the best way for sending passwords.
-- [ ] Use OpenAPI Specification to create the server and the clients.
-- [ ] Link OAS (Swagger) UI on server for quick API testing.
+- [X] Use OpenAPI Specification to create the server and the clients.
+- [X] Link OAS (Swagger) UI on server for quick API testing.
 - [ ] Use PostgreSQL for User Management database.
 - [ ] Create a Docker image for each remaining project.
 - [ ] Create a basic Flutter mobile app with only a `login` and `welcome` views, the latter displaying the user's full name.
@@ -30,6 +30,15 @@ git clone https://github.com/5-day-assignment/mobile-client.git
 
 ## Project: REST API Server
 
+After starting the server, in [development](#development) or [docker](#docker) way, you can test the API in Postman using the [provided collection][postman-collection-file-link], or by visiting the [SwaggerUI URL][openapi-link].
+
+*Note: Postman collection has pre- and post-scripts for the `POST /users` endpoint, so the last-created user's `id` is stored in variables for further processing, and so the `username` (which has a UNIQUE constraint in the database) is randomly generated, avoiding conflicts.*
+
+[postman-collection-file-link]: ./user_management.postman_collection.json
+[openapi-link]: http://localhost:8080/swagger-ui/index.html
+
+### Development
+
 ```shell
 cd rest-api-server
 mvn spring-boot:run
@@ -37,9 +46,18 @@ mvn spring-boot:run
 
 If everything successfully compiled, the server is running at `http://localhost:8080`.
 
-You can now test the API in Postman using the [provided collection][postman-collection-file-link], or by visiting the [SwaggerUI URL][openapi-link].
+### Docker
 
-*Note: Postman collection has pre- and post-scripts for the `POST /users` endpoint, so the last-created user's `id` is stored in variables for further processing, and so the `username` (which has a UNIQUE constraint in the database) is randomly generated, avoiding conflicts.*
+#### Prerequisites:
+- [X] JAR file created in ` \target\ `
+```shell
+mvn clean package
+```
+- [X] Dockerfile created in ` \ `
 
-[postman-collection-file-link]: ./user_management.postman_collection.json 
-[openapi-link]: http://localhost:8080/swagger-ui/index.html
+#### Docker run
+From root run build the image and run the container
+```shell
+docker build -t user-management-java-server .
+docker run -p 8080:8080 --name um-java-server user-management-java-server
+```
