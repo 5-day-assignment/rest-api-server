@@ -57,5 +57,5 @@ And make sure its filename completely matches the on in the ` \Dockerfile `.
 From root (` \ `) build the image and run the container with
 ```shell
 docker build -t user-management-java-server .
-docker run -p 8080:8080 --name um-java-server user-management-java-server
+docker run -p 8080:8080 user-management-java-server
 ```
