@@ -13,7 +13,7 @@
 	<artifactId>rest-api-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>rest-api-server</name>
-	<description>Demo project for Spring Boot</description>
+	<description>User Management API</description>
 	<properties>
 		<java.version>22</java.version>
 	</properties>
