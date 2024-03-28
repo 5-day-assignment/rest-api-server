@@ -1,14 +1,14 @@
 # A 5 day assignment: User Management
 
 - [X] Use Java to write a **User Management** REST API Server. Basic CRUD: `GET/POST "/users"`, `GET/PUT/DELETE "/users/{id}"`. `User` model properties: `username`, `password`, `givenName`, `familyName`, `address`.
-- [ ] Use Python to wrote a Web Client, that will consume REST API Server: `findAllUsers`, `createNewUser`, `findUserById`, `updateUserById`, `deleteUserById`.
+- [ ] Use Python to write a Web Client that will consume REST API Server: `findAllUsers`, `createNewUser`, `findUserById`, `updateUserById`, `deleteUserById`.
 - [X] Create a Docker image for the REST API Server.
 - [ ] Rethink the best way for sending passwords.
 - [X] Use OpenAPI Specification to create the server and the clients.
 - [X] Link OAS (Swagger) UI on server for quick API testing.
 - [ ] Use PostgreSQL for User Management database.
-- [ ] Create a Docker image for each remaining project.
-- [ ] Create a basic Flutter mobile app with only a `login` and `welcome` views, the latter displaying the user's full name.
+- [ ] Containerize all projects with Docker.
+- [ ] Create a basic Flutter mobile app with only `login` and `welcome` views, the latter displaying the user's full name.
 
 ##### Links to all projects
 - [REST API Server][rest-api-server] - Java 22, Spring Boot 3.2.4
@@ -44,19 +44,17 @@ cd rest-api-server
 mvn spring-boot:run
 ```
 
-If everything successfully compiled, the server is running at `http://localhost:8080`.
+If everything compiled successfully, the server is running at `http://localhost:8080`.
 
 ### Docker
 
-#### Prerequisites:
-- [X] JAR file created in ` \target\ `
+Create the JAR file created in ` \target\ ` with
 ```shell
 mvn clean package
 ```
-- [X] Dockerfile created in ` \ `
+And make sure its filename completely matches the on in the ` \Dockerfile `.
 
-#### Docker run
-From root run build the image and run the container
+From root (` \ `) build the image and run the container with
 ```shell
 docker build -t user-management-java-server .
 docker run -p 8080:8080 --name um-java-server user-management-java-server
