@@ -1,7 +1,7 @@
 # A 5 day assignment: User Management
 
 - [X] Use Java to write a **User Management** REST API Server. Basic CRUD: `GET/POST "/users"`, `GET/PUT/DELETE "/users/{id}"`. `User` model properties: `username`, `password`, `givenName`, `familyName`, `address`.
-- [ ] Use Python to write a Web Client that will consume REST API Server: `findAllUsers`, `createNewUser`, `findUserById`, `updateUserById`, `deleteUserById`.
+- [X] Use Python to write a Web Client that will consume REST API Server: `findAllUsers`, `createNewUser`, `findUserById`, `updateUserById`, `deleteUserById`.
 - [X] Create a Docker image for the REST API Server.
 - [ ] Rethink the best way for sending passwords.
 - [X] Use OpenAPI Specification to create the server and the clients.
